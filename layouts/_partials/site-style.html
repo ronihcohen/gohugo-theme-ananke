@@ -1,9 +1,11 @@
 {{ with partials.IncludeCached "func/style/GetMainCSS.html" "style/GetMainCSS" }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" >
+<link rel="stylesheet" href="{{ .RelPermalink }}" media="print" onload="this.media='all'; this.onload=null;">
+<noscript><link rel="stylesheet" href="{{ .RelPermalink }}"></noscript>
 {{ end }}
 
 {{ range site.Params.custom_css }}
   {{ with partials.IncludeCached "func/style/GetResource.html" . . }}{{ else }}
-    <link rel="stylesheet" href="{{ urls.RelURL (.) }}">
+    <link rel="stylesheet" href="{{ urls.RelURL (.) }}" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="{{ urls.RelURL (.) }}"></noscript>
   {{ end }}
 {{ end }}
