@@ -17,4 +17,13 @@
 
 .nested-links a{
   overflow-wrap: break-word;
+  color: #0051b3;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.nested-links a:hover,
+.nested-links a:focus {
+  color: #003d82;
+  text-decoration: underline;
 }
